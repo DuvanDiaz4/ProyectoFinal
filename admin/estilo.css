@@ -1,0 +1,995 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Prompt:wght@300;400;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+}
+/* Botón de registro */
+.btn-registrarse {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to right, #36d1dc, #7b859c);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-registrarse:hover {
+    background: linear-gradient(to right, #2a9fbf, #8d96ae);
+    transform: scale(1.05);
+}
+
+.btn-registrarse:active {
+    background: linear-gradient(to right, #208ca4, #939bab);
+    transform: scale(0.98);
+}
+
+
+
+/**************************************************************
+/************ L O G I N       *********************************/
+
+/* Contenedor Principal */
+#contenedor-login {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor de la Presentación */
+#contenedor-login .presentacion {
+    width: 900px;
+    max-width: 1000px;
+    height: 600px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Panel Izquierdo: Título */
+#contenedor-login .presentacion .titulo {
+    width: 50%;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    animation: slideInLeft 1s ease-out;
+}
+
+#contenedor-login .presentacion .titulo h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#contenedor-login .presentacion .titulo p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Panel Derecho: Formulario */
+#contenedor-login .presentacion .contenedor-formulario {
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    animation: fadeIn 1s ease-out;
+}
+
+#contenedor-login .presentacion .contenedor-formulario .form-login {
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#contenedor-login .presentacion .contenedor-formulario .form-login .input-login {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid rgba(192, 192, 192, 0.5);
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+#contenedor-login .presentacion .contenedor-formulario .form-login .input-login:focus {
+    border-color: #4fd1c5;
+    outline: none;
+    box-shadow: 0 0 8px rgba(79, 209, 197, 0.5);
+}
+
+#contenedor-login .presentacion .contenedor-formulario .form-login .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#contenedor-login .presentacion .contenedor-formulario .form-login .btn:hover {
+    background: linear-gradient(to bottom, #3b9e98, #002d40, #1c1c1c);
+    transform: scale(1.05);
+}
+
+.msj-error-input {
+    font-size: 12px;
+    color: darkred;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/**************************************************************
+/*** ESTILO GENERALES DEL ADMIN     *********************************/
+
+html,
+body {
+    height: 100%;
+}
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    padding: 20px 10px;
+    color: #fff;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    position: fixed;
+    z-index: 99;
+}
+
+
+header h2 {
+    font-size: 14px;
+    font-style: italic;
+}
+
+#contenedor-admin {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.contenedor-menu {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 250px;
+    padding: 15px;
+    background-color:  #e9ebf1;
+    color: #444;
+    height: 100%;
+}
+
+.contenedor-menu h2 {
+    font-size: 16px;
+    margin: 10px 15px;
+}
+
+.contenedor-menu nav ul {
+    list-style: none;
+}
+
+.contenedor-menu nav ul li {
+    padding-left: 15px;
+    border-radius: 0 15px 15px 0;
+    overflow: hidden;
+}
+
+.contenedor-menu nav ul li i {
+    font-size: 16px;
+    width: 16px !important;
+    color: #444;
+    margin-right: 5px !important;
+}
+
+.contenedor-menu nav ul hr {
+    margin: 18px 0;
+    border: none;
+    border-top: 1px solid;
+    color: #aaa;
+}
+
+.contenedor-menu nav ul li a {
+    display: inline-block;
+    width: 100%;
+    color: #444;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+.pagina-activa,
+.pagina-activa a {
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    color: #fff !important;
+}
+.pagina-activa i{
+    color: #fff !important;
+}
+
+.contenedor-menu nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.contenedor-principal {
+    position: relative;
+    height: 100%;
+    padding-top: 80px;
+    /*z-index: -99;*/
+    margin-left: 250px;
+}
+
+
+/**************************************************************
+/*** ESTILOS DEL DASHBOARD     *********************************/
+
+/* Dashboard */
+#dashboard {
+    background-color: #f4f6f9;
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#dashboard > hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #e1e6e8;
+}
+
+#dashboard .contenedor-cajas-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#dashboard .contenedor-cajas-info .caja-info {
+    background-color: #ffffff;
+    border: 1px solid #e1e6e8;
+    text-align: center;
+    color: #000; /* Text color updated to black */
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Color bars with even darker shades */
+#dashboard .contenedor-cajas-info .caja-info.propiedades::before,
+#dashboard .contenedor-cajas-info .caja-info.propiedades::after {
+    background: #7cbfa2; /* Darker shade of green */
+}
+
+#dashboard .contenedor-cajas-info .caja-info.tipo::before,
+#dashboard .contenedor-cajas-info .caja-info.tipo::after {
+    background: #c1877b; /* Darker shade of peach */
+}
+
+#dashboard .contenedor-cajas-info .caja-info.paises::before,
+#dashboard .contenedor-cajas-info .caja-info.paises::after {
+    background: #d195c2; /* Darker shade of pink */
+}
+
+#dashboard .contenedor-cajas-info .caja-info.ciudades::before,
+#dashboard .contenedor-cajas-info .caja-info.ciudades::after {
+    background: #8a99d3; /* Darker shade of blue */
+}
+
+/* Bar positioning and visibility */
+#dashboard .contenedor-cajas-info .caja-info:nth-child(1)::before {
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(1)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(2)::before {
+    top: 0;
+    right: 0;
+    height: 6px;
+    width: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(3)::before {
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(3)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(4)::before {
+    bottom: 0;
+    right: 0;
+    height: 6px;
+    width: 100%;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:nth-child(4)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+}
+
+/* Hover efecto en caja */
+#dashboard .contenedor-cajas-info .caja-info:hover::before,
+#dashboard .contenedor-cajas-info .caja-info:hover::after {
+    opacity: 1;
+}
+
+#dashboard .contenedor-cajas-info .caja-info::before,
+#dashboard .contenedor-cajas-info .caja-info::after {
+    content: "";
+    position: absolute;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+#dashboard .contenedor-cajas-info .caja-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+#dashboard .contenedor-cajas-info .propiedades {
+    background-color: #d4f0e0;
+}
+
+#dashboard .contenedor-cajas-info .tipo {
+    background-color: #f8d4c4;
+}
+
+#dashboard .contenedor-cajas-info .paises {
+    background-color: #f6dff0;
+}
+
+#dashboard .contenedor-cajas-info .ciudades {
+    background-color: #dce4fc;
+}
+
+#dashboard .contenedor-cajas-info .caja-info p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000; 
+    margin: 0;
+}
+
+#dashboard .contenedor-cajas-info .caja-info .dato {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000; 
+    margin: 15px 0;
+}
+
+#dashboard .contenedor-cajas-info .caja-info a {
+    color: #007bff; 
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#dashboard .contenedor-cajas-info .caja-info a:hover {
+    text-decoration: underline;
+}
+
+.btn-accion {
+    background: linear-gradient(to right, #4fd1c5, #003f5c);
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-accion:hover {
+    background: linear-gradient(to right, #003f5c, #4fd1c5);
+    transform: translateY(-2px);
+}
+
+.btn-accion:active {
+    transform: scale(0.98);
+}
+
+
+/********************************************************************
+/*** ESTILOS DE NUEVA PROPIEDAD     *********************************/
+
+#nueva-propiedad {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#nueva-propiedad form,
+#actualizar-propiedad form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+#nueva-propiedad label,
+#actualizar-propiedad label {
+    display: block;
+    width: 100%;
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#nueva-propiedad .fila-una-columna,
+#actualizar-propiedad .fila-una-columna {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#nueva-propiedad .input-entrada-texto,
+#actualizar-propiedad .input-entrada-texto,
+#configuracion .input-entrada-texto {
+    width: 100%;
+    border: 1px solid #aaa;
+    background-color: #e6ebf5;
+    padding: 10px;
+}
+
+#nueva-propiedad .fila,
+#actualizar-propiedad .fila {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0
+}
+
+#nueva-propiedad .fila .box,
+#actualizar-propiedad .fila .box {
+    width: 30%;
+}
+
+#nueva-propiedad .btn-fotos,
+#actualizar-propiedad .btn-fotos {
+    width: 200px;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+}
+
+#nueva-propiedad .contenedor-foto-principal,
+#actualizar-propiedad .contenedor-foto-principal {
+    display: block;
+    max-width: 600px;
+    margin: 10px 0;
+}
+
+#nueva-propiedad .contenedor-foto-principal img,
+#actualizar-propiedad .contenedor-foto-principal img {
+    width: 100%;
+}
+
+#nueva-propiedad .contenedor-foto-galeria,
+#actualizar-propiedad .contenedor-foto-galeria {
+    display: inline-block;
+    max-width: 300px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#nueva-propiedad .foto-galeria,
+#actualizar-propiedad .foto-galeria {
+    width: 100%;
+}
+
+#nueva-propiedad hr {
+    margin-bottom: 20px;
+}
+
+
+/********************************************************************
+/*** LISTDO DE PROPIEDADES     *********************************/
+
+/* Listado de Propiedades */
+#listado-propiedades {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#listado-propiedades .contenedor-tabla {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #e1e6e8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+#listado-propiedades table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#listado-propiedades table tr {
+    border-bottom: 1px solid #e1e6e8;
+    font-size: 13px;
+}
+
+#listado-propiedades table td,
+#listado-propiedades table th {
+    padding: 10px;
+    text-align: left;
+}
+
+#listado-propiedades table th {
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#listado-propiedades table .form-acciones {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#listado-propiedades table .form-acciones input {
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#listado-propiedades table .btn-eliminar {
+    font-size: 13px;
+    text-decoration: none;
+    background-color: transparent;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+#listado-propiedades table .btn-eliminar:hover {
+    text-decoration: underline;
+}
+
+#listado-propiedades table .form-acciones input:hover {
+    text-decoration: underline;
+}
+
+#listado-propiedades table tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+#listado-propiedades table tr:nth-child(even) {
+    background: #ffffff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    color: #333;
+    font-size: 15px; /* Tamaño del texto aumentado */
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 9cm;
+    height: 3cm;
+    max-width: 9cm;
+    max-height: 3cm;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.modal-content button {
+    font-size: 15px; /* Tamaño del botón aumentado */
+    padding: 10px 18px; /* Tamaño del botón aumentado */
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #c82333;
+}
+
+.modal-content button:focus {
+    outline: none;
+}
+
+/* Close Button */
+.close {
+    color: #666;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Detalle Propiedades */
+#detalle-propiedad {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#detalle-propiedad .contenedor-tabla {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+#detalle-propiedad .descripcion {
+    width: 100%;
+    margin-top: 5px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#detalle-propiedad .descripcion td {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+#detalle-propiedad .descripcion tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+#detalle-propiedad .descripcion tr td:nth-child(odd) {
+    width: 220px;
+    font-weight: bold;
+    background-color: #f1f1f1;
+}
+
+#detalle-propiedad h3 {
+    margin-top: 20px;
+    color: #00897b;
+    font-size: 20px;
+}
+
+#detalle-propiedad .descripcion img {
+    max-width: 100%;
+    height: auto;
+}
+
+/********************************************************************
+/*** ACTUALIZAR PROPIEDAD     *********************************/
+
+
+/* para no repetir estilo se pusiero los selectores en la sección de nuevo propiedad */
+
+#actualizar-propiedad {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#actualizar-propiedad hr {
+    margin-bottom: 20px;
+}
+
+#actualizar-propiedad .btn-cambiar-foto {
+    display: inline;
+    color: #18ab84;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+#actualizar-propiedad .btn-cambiar-foto:hover {
+    text-decoration: underline;
+}
+
+#actualizar-propiedad #contenedor-fotos-nuevas .contenedor-foto-galeria {
+    display: inline-block;
+    max-width: 300px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#actualizar-propiedad #contenedor-fotos-nuevas .foto-galeria {
+    width: 100%;
+}
+
+
+/********************************************************************
+/*** NEUVO TIPO DE PROPIEDAD - NUEVO PAIS - NUEVA CIUDAD     *********************************/
+
+
+/*** ACTUALIZAR TIPO DE PROPIEDAD - ACTUALIZAR PAIS - ACTUALIZAR CIUDAD     *********************************/
+
+#nuevo-tipo-propiedad,
+#nuevo-pais,
+#nueva-ciudad {
+    background-color: #fff;
+    padding: 20px;
+}
+
+#nuevo-tipo-propiedad .box-nuevo-tipo,
+#nuevo-pais .box-nuevo-tipo,
+#nueva-ciudad .box-nuevo-tipo {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#nuevo-tipo-propiedad h3,
+#nuevo-pais h3,
+#nueva-ciudad h3 {
+    font-weight: normal;
+}
+
+#nuevo-tipo-propiedad .box-nuevo-tipo form,
+#nuevo-pais .box-nuevo-tipo form,
+#nueva-ciudad .box-nuevo-tipo form {
+    max-width: 900px;
+    margin: auto;
+}
+
+#nuevo-tipo-propiedad .box-nuevo-tipo form input[type=text],
+#nuevo-pais .box-nuevo-tipo form input[type=text],
+#nueva-ciudad .box-nuevo-tipo form input[type=text] {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 25px 0;
+}
+
+#nuevo-tipo-propiedad hr,
+#nuevo-pais hr,
+#nueva-ciudad hr {
+    margin: 10px 0;
+}
+
+#nueva-ciudad select {
+    display: block;
+    width: 200px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+
+/********************************************************************
+/*** LISTADO TIPO PROPIEDADES     *********************************/
+
+/* Listado de Tipos de Propiedades, Países y Ciudades */
+#listado-tipos-propiedades, #listado-paises, #listado-ciudades {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#listado-tipos-propiedades .contenedor-tabla,
+#listado-paises .contenedor-tabla,
+#listado-ciudades .contenedor-tabla {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.listados {
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+}
+
+.listados tr:nth-child(odd) {
+    background-color: #dedede;
+}
+
+.listados tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.listados tr {
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.listados th {
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px;
+    font-size: 15px;
+}
+
+.listados td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.listados input {
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.listados input:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Configuración */
+#configuracion {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#configuracion .box-configuracion {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+#configuracion .box-configuracion h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #00897b;
+}
+
+#configuracion .box-configuracion #personalizada .fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#configuracion .box-configuracion #personalizada .fila div {
+    width: 32%;
+}
+
+#configuracion label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#configuracion .box-configuracion input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#configuracion .box-configuracion #personalizada {
+    display: none;
+}

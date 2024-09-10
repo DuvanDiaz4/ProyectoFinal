@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Prompt:wght@300;400;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/**************************************************************
+/************ R E G I S T R O  *********************************/
+
+/* Contenedor Principal */
+#contenedor-registro {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor de la Presentación */
+#contenedor-registro .presentacion {
+    width: 900px;
+    max-width: 1000px;
+    height: 700px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Panel Izquierdo: Título */
+#contenedor-registro .presentacion .titulo {
+    width: 50%;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    animation: slideInLeft 1s ease-out;
+}
+
+#contenedor-registro .presentacion .titulo h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#contenedor-registro .presentacion .titulo p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Panel Derecho: Formulario */
+#contenedor-registro .presentacion .contenedor-formulario {
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    animation: fadeIn 1s ease-out;
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro {
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .input-registro {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid rgba(192, 192, 192, 0.5);
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .input-registro:focus {
+    border-color: #4fd1c5;
+    outline: none;
+    box-shadow: 0 0 8px rgba(79, 209, 197, 0.5);
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #4fd1c5, #003f5c, #2d2d2d);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn:hover {
+    background: linear-gradient(to bottom, #3b9e98, #002d40, #1c1c1c);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Botón Secundario: Redirige al login */
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn-secundario {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 30px; /* Redondeamos el botón */
+    background: linear-gradient(to right, #ff6f61, #d8345f); /* Degradado vibrante */
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none; /* Quitamos el subrayado por defecto */
+    text-align: center; /* Centrar texto */
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    letter-spacing: 1px; /* Añadimos espaciado en las letras */
+    position: relative;
+    overflow: hidden; /* Para contener el efecto de burbujeo */
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn-secundario::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn-secundario:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#contenedor-registro .presentacion .contenedor-formulario .form-registro .btn-secundario:hover {
+    background: linear-gradient(to right, #d8345f, #ff6f61); /* Invertir el degradado en hover */
+    transform: translateY(-5px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra más profunda al hacer hover */
+    filter: brightness(1.1); /* Aumenta el brillo al hacer hover */
+}
